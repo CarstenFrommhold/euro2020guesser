@@ -111,13 +111,15 @@ class AgeGuesser_2_1(AgeGuesserBase):
 
 
 def evaluate(matches: pd.DataFrame,
-             betters: Dict[str, GuesserBase]) -> [pd.DataFrame, pd.DataFrame]:
+             betters: Dict[str, GuesserBase],
+             predict_only: bool = False) -> [pd.DataFrame, pd.DataFrame]:
 
     """ Evaluate already played matches and given betters.
     """
 
     # Only take already played matches into account
-    matches = matches.loc[~matches["Goals Team 1"].isnull()]
+    if not predict_only:
+        matches = matches.loc[~matches["Goals Team 1"].isnull()]
 
     guesser_performances = {}
 
@@ -129,20 +131,23 @@ def evaluate(matches: pd.DataFrame,
         matches[f"{guesser_name} Bet Goals 2"] = matches.apply(
             lambda row: guesser.bet(row["Team 1"], row["Team 2"])[1], axis=1)
 
-        # Get Points
-        matches[f"{guesser_name} Points"] = matches.apply(
-            lambda row: points(row["Goals Team 1"],
-                               row["Goals Team 2"],
-                               row[f"{guesser_name} Bet Goals 1"],
-                               row[f"{guesser_name} Bet Goals 2"]), axis=1
-        )
+        if not predict_only:
 
-        # Save in dict
-        guesser_performances[guesser_name] = matches[f"{guesser_name} Points"].sum()
+            # Get Points
+            matches[f"{guesser_name} Points"] = matches.apply(
+                lambda row: points(row["Goals Team 1"],
+                                   row["Goals Team 2"],
+                                   row[f"{guesser_name} Bet Goals 1"],
+                                   row[f"{guesser_name} Bet Goals 2"]), axis=1
+            )
+
+            # Save in dict
+            guesser_performances[guesser_name] = matches[f"{guesser_name} Points"].sum()
 
     # Format results
     results = pd.DataFrame(guesser_performances.items())
-    results.columns = ["Guesser", "Points"]
-    results = results.sort_values(by=["Points"], ascending=False)
+    if not predict_only:
+        results.columns = ["Guesser", "Points"]
+        results = results.sort_values(by=["Points"], ascending=False)
 
     return matches, results
