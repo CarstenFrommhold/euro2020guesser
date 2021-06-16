@@ -6,16 +6,19 @@ Just some stupid guesser to compare ones own betting performance :-)
 
 One needs to update the matches excel under data/input and run main.py.
 
-## Guesser
+## Guessers
 
-The Age-guesser bets 1-0, resp. 2-1 for the team which has the higher mean age. 
-"It's all about experience", so one could also name it the Oliver-Kahn guesser. 
+"It's all about experience": The Age-guesser bets 1-0, resp. 2-1 for the team which has the higher mean age.
 
 The Ranking-guesser bets 1-0 resp. 2-1 for the team with the higher points regarding the fifa world ranking, last updated on the 27th of May 2021.
 
 ## Betting points
 
-The scoring is based on the "classic" Kicktipp scoring system. 4 points for a correct result, 3 points for the correct goal difference, 2 points for the correct tendency. 
+The points are calculated as follows:
+
+* 4 points for a correct result 
+* 3 points for the correct goal difference 
+* 2 points for the correct tendency 
 
 ## Data
 
