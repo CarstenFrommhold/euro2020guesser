@@ -3,7 +3,7 @@
 import pandas as pd
 from euroguesser.guesser import RankGuesser_1_0, RankGuesser_2_1, AgeGuesser_1_0, AgeGuesser_2_1, evaluate
 
-export_match_excel: bool = True
+export_match_excel: bool = False
 date: str = "2021-06-15"
 
 if __name__ == "__main__":

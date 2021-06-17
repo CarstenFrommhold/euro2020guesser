@@ -28,11 +28,11 @@ FIFA world ranking taken from https://www.kaggle.com/cashncarry/fifaworldranking
 
 ## Evaluation 
 
-After 14 matches :
+After 17 matches :
 
 | Guesser        |   Points |
 |:---------------|---------:|
-| RankGuesser_10 |       29 |
-| RankGuesser_21 |       26 |
-| AgeGuesser_10  |       26 |
-| AgeGuesser_21  |       25 |
+| RankGuesser_10 |       37 |
+| RankGuesser_21 |       36 |
+| AgeGuesser_10  |       29 |
+| AgeGuesser_21  |       29 |
