@@ -25,9 +25,10 @@ if __name__ == "__main__":
         "RankGuesser_21": RankGuesser_21,
         "AgeGuesser_10": AgeGuesser_10,
         "AgeGuesser_21": AgeGuesser_21
-    }, predict_only=True)
+    }, predict_only=False)
 
     print(results.to_markdown(index=False))
 
     if export_match_excel:
-        matches.to_excel(f"data/predictions/matches_{date}.xlsx")
+        #matches.to_excel(f"data/predictions/matches_{date}.xlsx")
+        matches.to_excel(f"data/evaluation/matches_{date}.xlsx")
