@@ -117,6 +117,8 @@ def evaluate(matches: pd.DataFrame,
     """ Evaluate already played matches and given betters.
     """
 
+    matches = matches.loc[~matches["Team 1"].isnull()]
+
     # Only take already played matches into account
     if not predict_only:
         matches = matches.loc[~matches["Goals Team 1"].isnull()]
