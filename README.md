@@ -26,13 +26,11 @@ Ages taken from https://www.reddit.com/r/soccer/comments/nqjys5/the_average_age_
 
 FIFA world ranking taken from https://www.kaggle.com/cashncarry/fifaworldranking?select=fifa_ranking-2021-05-27.csv
 
-## Evaluation 
-
-After group stage (36/51 matches) :
+## Evaluation
 
 | Guesser        |   Points |
 |:---------------|---------:|
-| RankGuesser_10 |       68 |
-| RankGuesser_21 |       63 |
-| AgeGuesser_10  |       50 |
-| AgeGuesser_21  |       47 |
+| RankGuesser_10 |       91 |
+| RankGuesser_21 |       88 |
+| AgeGuesser_10  |       68 |
+| AgeGuesser_21  |       65 |

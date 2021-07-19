@@ -4,7 +4,7 @@ import pandas as pd
 from euroguesser.guesser import RankGuesser_1_0, RankGuesser_2_1, AgeGuesser_1_0, AgeGuesser_2_1, evaluate
 
 export_match_excel: bool = True
-date: str = "2021-06-24"
+date: str = "2021-07-11"
 
 if __name__ == "__main__":
 
@@ -25,10 +25,9 @@ if __name__ == "__main__":
         "RankGuesser_21": RankGuesser_21,
         "AgeGuesser_10": AgeGuesser_10,
         "AgeGuesser_21": AgeGuesser_21
-    }, predict_only=True)
+    }, predict_only=False)
 
     print(results.to_markdown(index=False))
 
     if export_match_excel:
-        matches.to_excel(f"data/predictions/matches_{date}.xlsx")
-        # matches.to_excel(f"data/evaluation/matches_{date}.xlsx")
+        matches.to_excel(f"data/evaluation/matches_{date}.xlsx")
